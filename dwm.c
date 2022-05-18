@@ -1461,8 +1461,11 @@ run(void)
 
 void
 runAutostart(void) {
-	system("cd ~/.dwm; ./autostart_blocking.sh");
-	system("cd ~/.dwm; ./autostart.sh &");
+    int autostart_status;
+	// system("cd ~/.dwm; ./autostart_blocking.sh");
+	autostart_status = system("cd ~/.dwm; ./autostart.sh &");
+    if (autostart_status == 1)
+        printf("%d", autostart_status);
 }
 
 void
